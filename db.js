@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 // ใส่ Connection String ที่ตัวแปร dbURI (นำเครื่องหมาย < > ออกจากรหัสผ่าน)
-const dbURI = process.env.MONGO_URI;;
+const dbURL = process.env.MONGO_URL;;
 
-mongoose.connect(dbURI)
+mongoose.connect(dbURL)
   .then(() => {
     console.log('สำเร็จ! Node.js เชื่อมต่อกับ MongoDB Atlas แล้ว');
   })
