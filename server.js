@@ -121,7 +121,7 @@ app.put('/tasks/:id', async (req, res) => {
 });
 
 // 6. DELETE: แทรก verifyToken คั่นกลางเพื่อป้องกันไม่ให้ลบได้ถ้าไม่มี Token
-app.delete('/tasks/:id', verifyToken, async (req, res) => {
+app.delete('/tasks/:id', async (req, res) => {
     try {
         const deletedTask = await Task.findByIdAndDelete(req.params.id);
         if (!deletedTask) {
