@@ -1,0 +1,28 @@
+### 1. ทดสอบลบงานโดย "ไม่มี Token" (ข้อ 8)
+DELETE http://localhost:3000/tasks/6ab2a5180fbd3acb1fabec69
+
+### 2. ทดสอบสมัครสมาชิก (ข้อ 11)
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password123"
+}
+
+### 3. ทดสอบล็อกอินเพื่อรับ Token (ข้อ 12)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password123"
+}
+
+### 4. ดึงดูรายการงานเพื่อหา _id ของงานจริง (ข้อ 15)
+GET http://localhost:3000/tasks
+
+### 5. ทดสอบลบงานโดย "แนบ Token" (ข้อ 15)
+# (นำ Token ที่ได้จากข้อ 3 มาวางต่อท้าย Bearer และนำ _id จริงมาต่อท้าย URL)
+DELETE http://localhost:3000/tasks/6acc74c7187a1dc1b8c95d94
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhY2M3Y2I0OWM1OTY3NGI4YmViYTQzYiIsImlhdCI6MTc5MTc4NjI3NCwiZXhwIjoxNzkxNzg5ODc0fQ.r0Eu1PJAot-HxJ-BzqJGpkUVvtcOmmK8e6VyQHfhxI0
